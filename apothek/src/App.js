@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './styles/app.scss';
+import Welcome from './components/Welcome';
+import Home from './components/Home';
+import userAgeContext from './contexts/userAgeContext';
 
 function App() {
+  const [usrOfAge, setUsrOfAge] = useState(false);
+
+  const oldEough = () => {
+    setUsrOfAge(!usrOfAge);
+  }
+
+  const notOldEough = () => {
+    alert("Sorry, you must be at least 21 years old to vist this site.")
+  }
+
   return (
     <div className="App">
+      <userAgeContext.Provider value={[ usrOfAge, oldEough, notOldEough ] }>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {
+          usrOfAge ? <Home /> : <Welcome />
+        }
       </header>
+      </userAgeContext.Provider>
     </div>
   );
 }
