@@ -19,10 +19,10 @@ function App() {
     <div className="App">
       <userAgeContext.Provider value={[ usrOfAge, oldEough, notOldEough ] }>
       <header>
-        {/* {
+        {
           usrOfAge ? <Home /> : <Welcome />
-        } */}
-        <Home />
+        }
+        {/* <Home /> */}
       </header>
       </userAgeContext.Provider>
     </div>
