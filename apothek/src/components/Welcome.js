@@ -13,6 +13,7 @@ const Welcome = () => {
                 className="logo"
             />
             <div className="of-age-container">
+                <h1>APOTHEK</h1>
                 <h2>ARE YOU OVER 21?</h2>
                 <div className="btn-container">
                     <button className="yes-btn" onClick={ usrOfAge[1] }>Yes</button>
